@@ -1,0 +1,15 @@
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\bin\Debug\net8.0\DalEstudiantes.deps.json
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\bin\Debug\net8.0\DalEstudiantes.runtimeconfig.json
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\bin\Debug\net8.0\DalEstudiantes.dll
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\bin\Debug\net8.0\DalEstudiantes.pdb
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.csproj.AssemblyReference.cache
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.AssemblyInfoInputs.cache
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.AssemblyInfo.cs
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.sourcelink.json
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.dll
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\refint\DalEstudiantes.dll
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.pdb
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\DalEstudiantes.genruntimeconfig.cache
+C:\Users\kevin\OneDrive\Documentos\GitHub\PruebaTecnica\WebApiEstudiantes\DalEstudiantes\obj\Debug\net8.0\ref\DalEstudiantes.dll
