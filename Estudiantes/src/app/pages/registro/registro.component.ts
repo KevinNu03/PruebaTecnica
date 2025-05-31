@@ -3,7 +3,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { AppFloatingConfigurator } from '../../layout/component/app.floatingconfigurator';
-import { FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RippleModule } from 'primeng/ripple';
 import { Router } from '@angular/router';
 import { publicRoutes } from '../../core/interceptors/public-private-routes';
@@ -12,6 +12,9 @@ import { Dialog } from 'primeng/dialog';
 import { RegistroService } from './services/registro.service';
 import { Estudiante } from '../../shared/models/Estudiante';
 import { tap } from 'rxjs';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialog } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-registro',
@@ -22,10 +25,13 @@ import { tap } from 'rxjs';
     AppFloatingConfigurator,
     ReactiveFormsModule,
     RippleModule,
-    CommonModule
+    CommonModule,
+    ToastModule,
+    ConfirmDialog,
   ],
   templateUrl: './registro.component.html',
-  styleUrl: './registro.component.scss'
+  styleUrl: './registro.component.scss',
+  providers: [ConfirmationService, MessageService]
 })
 export class RegistroComponent implements OnInit{
   registerForm!: FormGroup;
@@ -33,7 +39,9 @@ export class RegistroComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private registroService: RegistroService
+    private registroService: RegistroService,
+    private confirmationService: ConfirmationService, 
+    private messageService: MessageService
   ){}
 
   ngOnInit(): void {
@@ -61,23 +69,34 @@ export class RegistroComponent implements OnInit{
   }
 
   onRegister(){
-    const estudiante: Estudiante = {
-      identificacion: String(this.registerForm.get('identificacion')?.value),
-      nombreCompleto: String(this.registerForm.get('nombre')?.value),
-      contrasena: String(this.registerForm.get('contrasena')?.value),
-    }
+    this.confirmationService.confirm({
+            header: 'Esta seguro?',
+            message: 'Por favor confirmar para continuar.',
+            accept: () => {
+                const estudiante: Estudiante = {
+                  identificacion: String(this.registerForm.get('identificacion')?.value),
+                  nombreCompleto: String(this.registerForm.get('nombre')?.value),
+                  contrasena: String(this.registerForm.get('contrasena')?.value),
+                }
 
-    this.registroService.Registro(estudiante)
-    .pipe(
-      tap(response => {
-        alert(response.message);
-        this.router.navigate([`${publicRoutes.LOGIN}`]);
-      })
-    )
-    .subscribe({
-      error: (err) => {
-        alert(err);
-      }
-    })
+                this.registroService.Registro(estudiante)
+                .pipe(
+                  tap(response => {
+                    alert(response.message);
+                    if(response.isSuccess){
+                      this.router.navigate([`${publicRoutes.LOGIN}`]);
+                    }
+                  })
+                )
+                .subscribe({
+                  error: (err) => {
+                    this.messageService.add({ severity: 'error', summary: 'Error!', detail: err });
+                  }
+                });
+            },
+            reject: () => {
+                this.messageService.add({ severity: 'error', summary: 'Rechazado!', detail: 'Valide Nuevamente' });
+            },
+        });
   }
 }

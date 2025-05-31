@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -10,6 +10,9 @@ import { publicRoutes } from '../../core/interceptors/public-private-routes';
 import { Login } from '../../shared/models/Estudiante';
 import { LoginService } from './services/login.service';
 import { tap } from 'rxjs';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialog } from 'primeng/confirmdialog';
 
 
 @Component({
@@ -20,17 +23,20 @@ import { tap } from 'rxjs';
     PasswordModule, 
     AppFloatingConfigurator,
     RippleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
+  providers: [MessageService, ConfirmationService]
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private messageService: MessageService,
   ){}
 
   ngOnInit(): void {
@@ -53,12 +59,16 @@ export class LoginComponent implements OnInit {
     this.loginService.Login(login)
     .pipe(
       tap(response => {
-        alert(response.message);
+        if(response.isSuccess){
+          this.messageService.add({ severity: 'success', summary: 'Ingreso', detail: response.message });
+        }else{
+          this.messageService.add({ severity: 'error', summary: 'Error!', detail: response.message });
+        }
       })
     )
     .subscribe({
       error: (err) => {
-        alert(err);
+        this.messageService.add({ severity: 'error', summary: 'Error!', detail: err });
       }
     })
   }

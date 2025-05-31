@@ -77,7 +77,7 @@ namespace WebApiEstudiantes.Controllers
                 }
                 else
                 {
-                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, message = "El estudiante ya se encuentra registrado." });
+                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = false, message = "El estudiante ya se encuentra registrado." });
                 }
 
                 

@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "WebApiEstudiantes\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\Controllers\\LoginController.cs",
               "RelativeToolTip": "WebApiEstudiantes\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAADwvyQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAUwE8AAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-31T15:27:34.601Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "WebApiEstudiantes\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T15:01:53.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T15:01:53.814Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "WebApiEstudiantes\\Services\\LoginService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAWwCcAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T14:07:46.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T14:07:46.997Z"
             }
           ]
         }
