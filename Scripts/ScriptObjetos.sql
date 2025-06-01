@@ -28,3 +28,30 @@ BEGIN
 END
 GO
 
+--SE CREA LA TABLA DE PROFESORES
+IF NOT EXISTS (
+    SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_NAME = 'Profesores' AND TABLE_SCHEMA = 'dbo'
+)
+BEGIN
+    CREATE TABLE Profesores (
+        IdProfesor INT IDENTITY(1,1) PRIMARY KEY,
+        NombreProfesor VARCHAR(50),
+        Estado BIT
+    );
+END
+GO
+
+--SE CREA LA TABLA DE MATERIAS
+IF NOT EXISTS (
+    SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_NAME = 'Profesores' AND TABLE_SCHEMA = 'dbo'
+)
+BEGIN
+    CREATE TABLE Materias (
+        IdMateria INT IDENTITY(1,1) PRIMARY KEY,
+        Materia VARCHAR(50),
+        Estado BIT
+    );
+END
+GO

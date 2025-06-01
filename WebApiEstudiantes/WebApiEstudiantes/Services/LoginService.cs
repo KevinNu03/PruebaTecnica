@@ -36,7 +36,7 @@ namespace WebApiEstudiantes.Services
             {
                 var Registro = (await _Context.GetProcedures().SpRegistrarEstudianteAsync(
                     model.Identificacion!.ToUpper(),
-                    model.NombreCompleto!.ToUpper(),
+                    model.NombreEstudiante!.ToUpper(),
                     _Utilidades.EncriptarSHA256(model.Contrasena!)
                 )).FirstOrDefault();
 

@@ -75,7 +75,7 @@ export class RegistroComponent implements OnInit{
             accept: () => {
                 const estudiante: Estudiante = {
                   identificacion: String(this.registerForm.get('identificacion')?.value),
-                  nombreCompleto: String(this.registerForm.get('nombre')?.value),
+                  nombreEstudiante: String(this.registerForm.get('nombre')?.value),
                   contrasena: String(this.registerForm.get('contrasena')?.value),
                 }
 

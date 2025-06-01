@@ -7,11 +7,19 @@ export class LocalStorageService {
 
   constructor() { }
 
-  getToken(){
-    localStorage.getItem('token');
+  getToken(): string | null{
+    return localStorage.getItem('token');
   }
 
-  setToken(token: string){
-    localStorage.setItem('token', token)
+  setToken(token: string | null){
+    localStorage.setItem('token', token || "")
+  }
+
+  setIdEstudiante(IdEstudiante: number | null){
+    localStorage.setItem('IdEstudiante', String(IdEstudiante) || "")
+  }
+
+  getIdEstudiante(): number{
+    return Number(localStorage.getItem('IdEstudiante'));
   }
 }

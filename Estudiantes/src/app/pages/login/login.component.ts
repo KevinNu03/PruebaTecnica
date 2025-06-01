@@ -9,10 +9,11 @@ import { AppFloatingConfigurator } from '../../layout/component/app.floatingconf
 import { publicRoutes } from '../../core/interceptors/public-private-routes';
 import { Login } from '../../shared/models/Estudiante';
 import { LoginService } from './services/login.service';
-import { tap } from 'rxjs';
+import { tap, TimeoutError } from 'rxjs';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialog } from 'primeng/confirmdialog';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
 
 
 @Component({
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private messageService: MessageService,
+    private localStorage: LocalStorageService
   ){}
 
   ngOnInit(): void {
@@ -61,6 +63,11 @@ export class LoginComponent implements OnInit {
       tap(response => {
         if(response.isSuccess){
           this.messageService.add({ severity: 'success', summary: 'Ingreso', detail: response.message });
+          //se guarda el token y el id estudiante en el localstorage
+          this.localStorage.setToken(response.token);
+          this.localStorage.setIdEstudiante(response.idEstudiante);
+          //se redirecciona a el home
+          this.router.navigate([`/${publicRoutes.HOME}`])
         }else{
           this.messageService.add({ severity: 'error', summary: 'Error!', detail: response.message });
         }
@@ -70,6 +77,6 @@ export class LoginComponent implements OnInit {
       error: (err) => {
         this.messageService.add({ severity: 'error', summary: 'Error!', detail: err });
       }
-    })
+    });
   }
 }

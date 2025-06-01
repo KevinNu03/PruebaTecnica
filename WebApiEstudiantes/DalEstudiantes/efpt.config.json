@@ -15,11 +15,27 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[SpDeleteEstudiante]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpGetEstudiante]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpGetEstudianteXMaterias]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[SpIniciarSesion]",
          "ObjectType": 1
       },
       {
          "Name": "[dbo].[SpRegistrarEstudiante]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SpUpdateEstudiante]",
          "ObjectType": 1
       }
    ],

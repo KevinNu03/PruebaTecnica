@@ -43,6 +43,84 @@ namespace DalEstudiantes.Models
             _context = context;
         }
 
+        public virtual async Task<int> SpDeleteEstudianteAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "IdEstudiante",
+                    Value = idEstudiante ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[SpDeleteEstudiante] @IdEstudiante = @IdEstudiante", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<List<SpGetEstudianteResult>> SpGetEstudianteAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "IdEstudiante",
+                    Value = idEstudiante ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<SpGetEstudianteResult>("EXEC @returnValue = [dbo].[SpGetEstudiante] @IdEstudiante = @IdEstudiante", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<List<SpGetEstudianteXMateriasResult>> SpGetEstudianteXMateriasAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "IdEstudiante",
+                    Value = idEstudiante ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<SpGetEstudianteXMateriasResult>("EXEC @returnValue = [dbo].[SpGetEstudianteXMaterias] @IdEstudiante = @IdEstudiante", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<List<SpIniciarSesionResult>> SpIniciarSesionAsync(string identificacion, string contrasena, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -112,6 +190,53 @@ namespace DalEstudiantes.Models
                 parameterreturnValue,
             };
             var _ = await _context.SqlQueryAsync<SpRegistrarEstudianteResult>("EXEC @returnValue = [dbo].[SpRegistrarEstudiante] @Identificacion = @Identificacion, @NombreCompleto = @NombreCompleto, @Contrasena = @Contrasena", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<int> SpUpdateEstudianteAsync(int? idEstudiante, string identificacion, string nombreEstudiante, string contrasena, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "IdEstudiante",
+                    Value = idEstudiante ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "Identificacion",
+                    Size = 15,
+                    Value = identificacion ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "NombreEstudiante",
+                    Size = 50,
+                    Value = nombreEstudiante ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "Contrasena",
+                    Size = 500,
+                    Value = contrasena ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[SpUpdateEstudiante] @IdEstudiante = @IdEstudiante, @Identificacion = @Identificacion, @NombreEstudiante = @NombreEstudiante, @Contrasena = @Contrasena", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

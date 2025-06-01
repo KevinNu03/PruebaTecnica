@@ -4,6 +4,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { publicRoutes } from './core/interceptors/public-private-routes';
+import { authenticationGuard } from './core/guards/authentication.guard';
+import { EstudiantesComponent } from './pages/estudiantes/estudiantes.component';
+import { MateriasComponent } from './pages/materias/materias.component';
 
 export const appRoutes: Routes = [
     {
@@ -19,11 +22,14 @@ export const appRoutes: Routes = [
         component: RegistroComponent,
     },
     {
-        path: publicRoutes.HOME,
+        path: '',
         component: AppLayout,
         children: [
-            { path: '', component: HomeComponent },
-        ]
+            { path: publicRoutes.HOME, component: HomeComponent },
+            { path: publicRoutes.ESTUDIANTES, component: EstudiantesComponent },
+            { path: publicRoutes.MATERIAS, component: MateriasComponent },
+        ],
+        canActivate: [authenticationGuard]
     },
     { path: publicRoutes.LOGIN, component: LoginComponent },
     { path: '**', redirectTo: `/${publicRoutes.LOGIN}` }

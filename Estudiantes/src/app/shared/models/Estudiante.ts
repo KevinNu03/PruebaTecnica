@@ -4,7 +4,8 @@ export interface Login {
 }
 
 export interface Estudiante {
+    IdEstudiante?: number;
     identificacion: string;
-    nombreCompleto: string;
+    nombreEstudiante: string;
     contrasena: string;
 };

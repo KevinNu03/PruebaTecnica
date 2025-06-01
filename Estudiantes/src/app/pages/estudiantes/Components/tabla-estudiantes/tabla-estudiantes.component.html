@@ -1,0 +1,22 @@
+<div class="card">
+    <p-table
+        [value]="Estudiantes"
+        [paginator]="true"
+        [rows]="5"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [rowsPerPageOptions]="[5, 10, 20]"
+    >
+        <ng-template #header>
+            <tr>
+                <th style="width:50%">identificación</th>
+                <th style="width:50%">Nombre Estudiante</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-Estudiante>
+            <tr>
+                <td>{{ Estudiante.identificacion }}</td>
+                <td>{{ Estudiante.nombreEstudiante }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

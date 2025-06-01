@@ -48,7 +48,7 @@ namespace WebApiEstudiantes.Controllers
                 }
                 else
                 {
-                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = _Utilidades.generarJWT(loginUsuario), message = "Bienvenid@" });
+                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = _Utilidades.generarJWT(loginUsuario), message = "Bienvenid@" , idEstudiante = login.IdEstudiante});
                 }
             }
             catch (Exception ex)
