@@ -120,7 +120,7 @@ export class UsuarioComponent implements OnInit {
       IdEstudiante: this.idEstudiante,
       identificacion: String(this.usuarioForm.get('identificacion')?.value) || '',
       nombreEstudiante: String(this.usuarioForm.get('nombreEstudiante')?.value) || '',
-      contrasena: !this.coincidePassword || String(this.usuarioForm.get('contrasena')?.value) == '' || String(this.usuarioForm.get('confirmarContrasena')?.value) == '' ? '': String(this.usuarioForm.get('contrasena')?.value) || '',
+      contrasena: !this.coincidePassword || String(this.usuarioForm.get('contrasena')?.value) == '' || String(this.usuarioForm.get('confirmarContrasena')?.value) == '' ? '' : String(this.usuarioForm.get('contrasena')?.value) || '',
     }
 
     this.usuarioService.UpdateEstudiante(Estudiante)

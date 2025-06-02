@@ -1,1 +1,51 @@
-<p>tabla-materias works!</p>
+<div class="card">
+    <p-table #dt1 [value]="Materias" [paginator]="true" [loading]="loading" [rows]="10"
+        [tableStyle]="{ 'min-width': '50rem' }" [rowsPerPageOptions]="[5, 10, 20]"
+        [globalFilterFields]="['materia', 'creditos', 'nombreProfesor']">
+        <ng-template #caption>
+            <div class="flex">
+                <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" />
+                <p-iconfield iconPosition="left" class="ml-auto">
+                    <p-inputicon>
+                        <i class="pi pi-search"></i>
+                    </p-inputicon>
+                    <input pInputText type="text" [(ngModel)]="searchValue" (input)="applyGlobalFilter($event, dt1)"
+                        placeholder="Buscar palabra clave" />
+                </p-iconfield>
+            </div>
+        </ng-template>
+        <ng-template #header>
+            <tr>
+                <th style="width:25%">
+                    <div class="flex items-center">
+                        Materia
+                        <p-columnFilter type="text" field="Materia.materia" display="menu" />
+                    </div>
+                </th>
+                <th style="width:25%">
+                    <div class="flex items-center">
+                        Creditos
+                        <p-columnFilter type="text" field="Materia.creditos" display="menu" />
+                    </div>
+                </th>
+                <th style="width:25%">
+                    <div class="flex items-center">
+                        NombreProfesor
+                        <p-columnFilter type="text" field="Materia.nombreProfesor" display="menu" />
+                    </div>
+                </th>
+                <th style="width:25%">Asignar Materia</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-Materia>
+            <tr>
+                <td>{{ Materia.materia }}</td>
+                <td>{{ Materia.creditos }}</td>
+                <td>{{ Materia.nombreProfesor }}</td>
+                <td><p-toggleswitch [(ngModel)]="Materia.asignada" (onChange)="asignarMateria(Materia)" />
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<p-toast />

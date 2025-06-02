@@ -13,9 +13,11 @@ namespace DalEstudiantes.Models
 {
     public partial interface IEstudiantesContextProcedures
     {
+        Task<List<SpAsignarMateriasResult>> SpAsignarMateriasAsync(int? idEstudiante, int? idMateria, bool? asignado, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> SpDeleteEstudianteAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<SpGetEstudianteResult>> SpGetEstudianteAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<SpGetEstudianteXMateriasResult>> SpGetEstudianteXMateriasAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<SpGetMateriasResult>> SpGetMateriasAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<SpIniciarSesionResult>> SpIniciarSesionAsync(string identificacion, string contrasena, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<SpRegistrarEstudianteResult>> SpRegistrarEstudianteAsync(string identificacion, string nombreCompleto, string contrasena, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> SpUpdateEstudianteAsync(int? idEstudiante, string identificacion, string nombreEstudiante, string contrasena, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);

@@ -262,5 +262,93 @@
         "StatusCode": 401
       }
     ]
+  },
+  {
+    "ContainingType": "WebApiEstudiantes.Controllers.MateriasController",
+    "Method": "AsignarMaterias",
+    "RelativePath": "api/Materias/AsignarMaterias",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AsignarMaterias",
+        "Type": "WebApiEstudiantes.Models.AsignarMaterias",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DalEstudiantes.Models.SpAsignarMateriasResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "WebApiUsuarios.Models.ResponseHttp",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApiEstudiantes.Controllers.MateriasController",
+    "Method": "GetMaterias",
+    "RelativePath": "api/Materias/GetMaterias/{IdEstudiante}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdEstudiante",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DalEstudiantes.Models.SpGetMateriasResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "WebApiUsuarios.Models.ResponseHttp",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      }
+    ]
   }
 ]

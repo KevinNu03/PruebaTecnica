@@ -43,6 +43,44 @@ namespace DalEstudiantes.Models
             _context = context;
         }
 
+        public virtual async Task<List<SpAsignarMateriasResult>> SpAsignarMateriasAsync(int? idEstudiante, int? idMateria, bool? asignado, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "IdEstudiante",
+                    Value = idEstudiante ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "IdMateria",
+                    Value = idMateria ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "Asignado",
+                    Value = asignado ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Bit,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<SpAsignarMateriasResult>("EXEC @returnValue = [dbo].[SpAsignarMaterias] @IdEstudiante = @IdEstudiante, @IdMateria = @IdMateria, @Asignado = @Asignado", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<int> SpDeleteEstudianteAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -115,6 +153,32 @@ namespace DalEstudiantes.Models
                 parameterreturnValue,
             };
             var _ = await _context.SqlQueryAsync<SpGetEstudianteXMateriasResult>("EXEC @returnValue = [dbo].[SpGetEstudianteXMaterias] @IdEstudiante = @IdEstudiante", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<List<SpGetMateriasResult>> SpGetMateriasAsync(int? idEstudiante, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "IdEstudiante",
+                    Value = idEstudiante ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<SpGetMateriasResult>("EXEC @returnValue = [dbo].[SpGetMaterias] @IdEstudiante = @IdEstudiante", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 
