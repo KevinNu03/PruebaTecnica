@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F50C233-7A9D-45CA-AFBC-79D4DF8C0C5C}|WebApiEstudiantes\\WebApiEstudiantes.csproj|c:\\users\\kevin\\onedrive\\documentos\\github\\pruebatecnica\\webapiestudiantes\\webapiestudiantes\\services\\estudianteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F50C233-7A9D-45CA-AFBC-79D4DF8C0C5C}|WebApiEstudiantes\\WebApiEstudiantes.csproj|solutionrelative:webapiestudiantes\\services\\estudianteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F50C233-7A9D-45CA-AFBC-79D4DF8C0C5C}|WebApiEstudiantes\\WebApiEstudiantes.csproj|c:\\users\\kevin\\onedrive\\documentos\\github\\pruebatecnica\\webapiestudiantes\\webapiestudiantes\\services\\materiasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F50C233-7A9D-45CA-AFBC-79D4DF8C0C5C}|WebApiEstudiantes\\WebApiEstudiantes.csproj|solutionrelative:webapiestudiantes\\services\\materiasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F50C233-7A9D-45CA-AFBC-79D4DF8C0C5C}|WebApiEstudiantes\\WebApiEstudiantes.csproj|c:\\users\\kevin\\onedrive\\documentos\\github\\pruebatecnica\\webapiestudiantes\\webapiestudiantes\\controllers\\materiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F50C233-7A9D-45CA-AFBC-79D4DF8C0C5C}|WebApiEstudiantes\\WebApiEstudiantes.csproj|solutionrelative:webapiestudiantes\\controllers\\materiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F50C233-7A9D-45CA-AFBC-79D4DF8C0C5C}|WebApiEstudiantes\\WebApiEstudiantes.csproj|c:\\users\\kevin\\onedrive\\documentos\\github\\pruebatecnica\\webapiestudiantes\\webapiestudiantes\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9F50C233-7A9D-45CA-AFBC-79D4DF8C0C5C}|WebApiEstudiantes\\WebApiEstudiantes.csproj|solutionrelative:webapiestudiantes\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +19,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EstudianteService.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\Services\\EstudianteService.cs",
-              "RelativeDocumentMoniker": "WebApiEstudiantes\\Services\\EstudianteService.cs",
-              "ToolTip": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\Services\\EstudianteService.cs",
-              "RelativeToolTip": "WebApiEstudiantes\\Services\\EstudianteService.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAwwDwAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T17:00:27.761Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApiEstudiantes\\appsettings.json",
+              "ToolTip": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\appsettings.json",
+              "RelativeToolTip": "WebApiEstudiantes\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-02T21:33:41.566Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MateriasService.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\Services\\MateriasService.cs",
-              "RelativeDocumentMoniker": "WebApiEstudiantes\\Services\\MateriasService.cs",
-              "ToolTip": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\Services\\MateriasService.cs",
-              "RelativeToolTip": "WebApiEstudiantes\\Services\\MateriasService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBEAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T16:25:27.47Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MateriasController.cs",
-              "DocumentMoniker": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\Controllers\\MateriasController.cs",
-              "RelativeDocumentMoniker": "WebApiEstudiantes\\Controllers\\MateriasController.cs",
-              "ToolTip": "C:\\Users\\kevin\\OneDrive\\Documentos\\GitHub\\PruebaTecnica\\WebApiEstudiantes\\WebApiEstudiantes\\Controllers\\MateriasController.cs",
-              "RelativeToolTip": "WebApiEstudiantes\\Controllers\\MateriasController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAiwD8AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T16:21:55.971Z"
             }
           ]
         }
