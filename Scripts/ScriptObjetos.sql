@@ -88,6 +88,7 @@ BEGIN
         IdMateria INT,
         IdEstudiante INT,
         Estado BIT,
+        FechaCreacion DATETIME
 
         CONSTRAINT FK_Materia_MateriasXEstudiantes FOREIGN KEY (IdMateria)
         REFERENCES Materias(IdMateria),

@@ -796,6 +796,12 @@
             "minLength": 0,
             "type": "string",
             "nullable": true
+          },
+          "materias": {
+            "maxLength": 8000,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

@@ -1,4 +1,4 @@
-import { Estudiante } from "./Estudiante";
+import { Estudiante, EstudiantesXMaterias } from "./Estudiante";
 import { Materias } from "./Materias";
 
 export interface ResponseRegistro{
@@ -26,7 +26,7 @@ export interface ResponseUpdateDeleteEstudiante{
 
 export interface ResponseEstudianteXMaterias{
     isSuccess: boolean;
-    value: Estudiante[];
+    value: EstudiantesXMaterias[];
 }
 
 export interface ResponseGetMaterias{

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuItem, MessageService, PrimeIcons } from 'primeng/api';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -12,6 +12,7 @@ import { ToastModule } from 'primeng/toast';
 import { SplitButton } from 'primeng/splitbutton';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { publicRoutes } from '../../core/interceptors/public-private-routes';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @Component({
   selector: 'app-topbar',
@@ -30,9 +31,10 @@ import { publicRoutes } from '../../core/interceptors/public-private-routes';
     templateUrl: './app.topbar.html',
     providers: [MessageService]
 })
-export class AppTopbar {
+export class AppTopbar implements OnInit {
   visualizarUsuario: boolean = false;
   items: MenuItem[];
+  modoOscuro: boolean = false;
   constructor(
     public layoutService: LayoutService,
     private localStorage: LocalStorageService,
@@ -56,10 +58,21 @@ export class AppTopbar {
     ];
   }
 
-  toggleDarkMode() {
+  ngOnInit(): void {
+    if(this.localStorage.getModoOscuro() == 1){
+      this.modoOscuro = true;
+    }
+    this.toggleDarkMode(false);
+  }
+
+  toggleDarkMode(id: boolean) {
+    if(id){
+      this.modoOscuro = !this.modoOscuro;
+    }
+    this.localStorage.setModoOscuro(this.modoOscuro? 1: 0);
     this.layoutService.layoutConfig.update((state) => ({
       ...state,
-      darkTheme: !state.darkTheme,
+      darkTheme: this.modoOscuro,
     }));
   }
 

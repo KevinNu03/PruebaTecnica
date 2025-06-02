@@ -9,7 +9,7 @@
     <div class="layout-topbar-actions">
         <div class="layout-config-menu">
             <!-- modo oscuro -->
-            <button type="button" class="layout-topbar-action" (click)="toggleDarkMode()">
+            <button type="button" class="layout-topbar-action" (click)="toggleDarkMode(true)">
                 <i [ngClass]="{
               'pi ': true,
               'pi-moon': layoutService.isDarkTheme(),

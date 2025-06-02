@@ -9,3 +9,9 @@ export interface Estudiante {
     nombreEstudiante: string;
     contrasena: string;
 };
+
+export interface EstudiantesXMaterias{
+    identificacion: string;
+    nombreEstudiante: string;
+    materias: string;
+}

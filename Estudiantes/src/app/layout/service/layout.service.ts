@@ -1,5 +1,6 @@
-import { Injectable, effect, signal, computed } from '@angular/core';
+import { Injectable, effect, signal, computed, inject } from '@angular/core';
 import { Subject } from 'rxjs';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
 
 export interface layoutConfig {
     preset?: string;
@@ -26,12 +27,13 @@ interface MenuChangeEvent {
     providedIn: 'root'
 })
 export class LayoutService {
+    localStorage: LocalStorageService = inject(LocalStorageService);
     _config: layoutConfig = {
-        preset: 'Aura',
-        primary: 'emerald',
-        surface: null,
-        darkTheme: false,
-        menuMode: 'static'
+        preset: this.localStorage.getPresets() == 'null' ? 'Aura': this.localStorage.getPresets(),
+        primary: this.localStorage.getColor() == 'null'? 'primary': this.localStorage.getColor(),
+        surface: this.localStorage.getSurface() == 'null'? null: this.localStorage.getSurface(),
+        darkTheme: this.localStorage.getModoOscuro() == 1? true: false,
+        menuMode: this.localStorage.getMenuMode() == 'null' ? 'static': this.localStorage.getMenuMode()
     };
 
     _state: LayoutState = {

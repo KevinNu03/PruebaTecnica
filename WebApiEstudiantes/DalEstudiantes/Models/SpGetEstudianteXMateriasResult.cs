@@ -12,5 +12,7 @@ namespace DalEstudiantes.Models
         public string Identificacion { get; set; }
         [StringLength(50)]
         public string NombreEstudiante { get; set; }
+        [StringLength(8000)]
+        public string Materias { get; set; }
     }
 }

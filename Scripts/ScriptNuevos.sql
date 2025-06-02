@@ -203,14 +203,26 @@ BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-    SELECT
-		Identificacion
-		,NombreEstudiante
+    SELECT 
+		E.Identificacion,
+		E.NombreEstudiante,
+		STRING_AGG(M.Materia, ', ') AS Materias
 	FROM 
-		Estudiantes
+		MateriasXEstudiantes ME
+		INNER JOIN Estudiantes E ON ME.IdEstudiante = E.IdEstudiante AND E.Estado = 1
+		INNER JOIN Materias M ON M.IdMateria = ME.IdMateria AND M.Estado = 1
 	WHERE
-		IdEstudiante = @IdEstudiante
-		AND Estado = 1
+		ME.IdMateria IN (
+			SELECT IdMateria 
+			FROM MateriasXEstudiantes 
+			WHERE IdEstudiante = @IdEstudiante AND Estado = 1
+		)
+		AND ME.Estado = 1
+	GROUP BY 
+		E.Identificacion,
+		E.NombreEstudiante
+	ORDER BY
+		E.Identificacion ASC
 END
 GO
 
@@ -288,8 +300,8 @@ BEGIN
 							--POR ULTIMO VALIDAMOS QUE NO TENGA ASIGNADA YA LA MATERIA
 							IF NOT EXISTS(SELECT * FROM MateriasXEstudiantes ME WHERE ME.IdEstudiante = @IdEstudiante AND ME.IdMateria = @IdMateria AND Estado = 1)
 								BEGIN
-									INSERT INTO MateriasXEstudiantes (IdEstudiante, IdMateria, Estado)
-									VALUES (@IdEstudiante, @IdMateria, 1)
+									INSERT INTO MateriasXEstudiantes (IdEstudiante, IdMateria, Estado, FechaCreacion)
+									VALUES (@IdEstudiante, @IdMateria, 1, GETDATE())
 
 									SET @Mensaje = 'Materia asignada exitosamente.'
 								END

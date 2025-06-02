@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { Estudiante } from '../../../../shared/models/Estudiante';
+import { EstudiantesXMaterias } from '../../../../shared/models/Estudiante';
 import { EstudiantesService } from '../../services/estudiantes.service';
 import { LocalStorageService } from '../../../../shared/services/local-storage.service';
 import { tap } from 'rxjs';
@@ -18,7 +18,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [MessageService, ConfirmationService]
 })
 export class TablaEstudiantesComponent implements OnInit {
-  Estudiantes!: Estudiante[];
+  Estudiantes!: EstudiantesXMaterias[];
   idEstudiante!: number;
   constructor(
     private estudianteService: EstudiantesService,

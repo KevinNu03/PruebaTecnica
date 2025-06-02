@@ -83,7 +83,7 @@ export class TablaMateriasComponent implements OnInit {
           if (response.value) {
             this.messageService.add({ severity: 'success', summary: 'Exitoso!', detail: response.message });
           } else {
-            this.messageService.add({ severity: 'warn', summary: 'Exitoso!', detail: response.message });
+            this.messageService.add({ severity: 'warn', summary: 'Advertencia!', detail: response.message });
           }
 
           if(materia.asignada && !response.value){
